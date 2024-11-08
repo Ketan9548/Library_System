@@ -7,6 +7,9 @@ import Home from "./Pages/Home.jsx";
 import About from "./Components/About.jsx";
 import Addbooks from "./Components/Addbooks.jsx";
 import Books from "./Components/Books.jsx";
+import Signup from "./Components/Singup.jsx";
+import Login from "./Components/Login.jsx";
+import TermandCondition from "./Pages/TermandCondition.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
       {
         path: "/bookslist",
         element: <Books />,
+      },
+      {
+        path: "/singup",
+        element: <Signup />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/termandCondition",
+        element: <TermandCondition />,
       },
     ],
   },

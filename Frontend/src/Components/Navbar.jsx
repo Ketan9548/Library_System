@@ -58,6 +58,18 @@ const Navbar = () => {
               About
             </NavLink>
           </div>
+          <div className="flex">
+            <div className="mr-5">
+              <p className="text-white cursor-pointer hover:bg-slate-400 hover:text-black">
+                <NavLink to="/singup">SingUp</NavLink>
+              </p>
+            </div>
+            <div className="ml-3">
+              <p className="text-white cursor-pointer hover:bg-slate-400 hover:text-black">
+                <NavLink to="/login">Login</NavLink>
+              </p>
+            </div>
+          </div>
         </div>
       </nav>
     </div>

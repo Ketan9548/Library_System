@@ -132,7 +132,7 @@ const Books = () => {
       </div>
 
       {selectedBook && (
-        <div className="bg-slate-400 w-full h-full">
+        <div className="bg-slate-400 w-full h-f">
           <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-50">
             <div className="bg-white p-8 rounded-lg shadow-lg w-96">
               <h2 className="text-2xl font-semibold mb-4 text-center text-gray-900">
