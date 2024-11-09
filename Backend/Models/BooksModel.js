@@ -22,9 +22,12 @@ const BookSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    category: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
-
-export const Books = new mongoose.model("Books",BookSchema);
+export const Books = new mongoose.model("Books", BookSchema);

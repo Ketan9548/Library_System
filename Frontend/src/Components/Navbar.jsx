@@ -29,34 +29,50 @@ const Navbar = () => {
               isOpen ? "block" : "hidden"
             } md:block`}
           >
-            <NavLink
-              to="/"
-              className="text-white hover:text-gray-300 transition duration-200"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/addbooks"
-              className="text-white hover:text-gray-300 transition duration-200"
-              onClick={() => setIsOpen(false)}
-            >
-              Add Books
-            </NavLink>
-            <NavLink
-              to="/bookslist"
-              className="text-white hover:text-gray-300 transition duration-200"
-              onClick={() => setIsOpen(false)}
-            >
-              Books
-            </NavLink>
-            <NavLink
-              to="/about"
-              className="text-white hover:text-gray-300 transition duration-200"
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </NavLink>
+            <p className="text-white hover:text-gray-300 transition duration-200">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "active-link" : "inactive-link"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </NavLink>
+            </p>
+            <p className="text-white hover:text-gray-300 transition duration-200">
+              <NavLink
+                to="/addbooks"
+                className={({ isActive }) =>
+                  isActive ? "active-link" : "inactive-link"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                Add Books
+              </NavLink>
+            </p>
+            <p className="text-white hover:text-gray-300 transition duration-200">
+              <NavLink
+                to="/bookslist"
+                className={({ isActive }) =>
+                  isActive ? "active-link" : "inactive-link"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                Books
+              </NavLink>
+            </p>
+            <p className="text-white hover:text-gray-300 transition duration-200">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "active-link" : "inactive-link"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                About
+              </NavLink>
+            </p>
           </div>
           <div className="flex">
             <div className="mr-5">

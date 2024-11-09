@@ -10,7 +10,21 @@ const Addbooks = () => {
     image: "",
     price: "",
     description: "",
+    category: "",
   });
+
+  const selectedcategiries = [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Mythology",
+    "Suspense",
+    "Historical Fictio",
+    "Horror",
+    "Literary Fiction",
+    "Romance",
+    "Romance Fiction",
+  ];
 
   const change = (e) => {
     const { name, value } = e.target;
@@ -29,6 +43,7 @@ const Addbooks = () => {
         image: "",
         price: "",
         description: "",
+        category: "",
       });
     } catch (error) {
       console.error("Error submitting data:", error);
@@ -93,7 +108,24 @@ const Addbooks = () => {
               value={data.price}
             />
           </div>
-
+          <div>
+            <p className="text-center font-semibold">Category</p>
+            <select
+              className="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              name="category"
+              onChange={change}
+              value={data.category}
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              {selectedcategiries.map((val, index) => (
+                <option key={index} value={val}>
+                  {val}
+                </option>
+              ))}
+            </select>
+          </div>
           <div>
             <p className="text-center font-semibold">Description</p>
             <textarea

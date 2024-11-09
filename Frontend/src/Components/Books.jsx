@@ -9,6 +9,7 @@ const Books = () => {
     price: "",
     author: "",
     description: "",
+    category: "",
   });
   const url = "http://localhost:3321/api/show";
 
@@ -62,18 +63,36 @@ const Books = () => {
         price: "",
         author: "",
         description: "",
+        category: "",
       });
     } catch (error) {
       console.error("Error updating item: ", error);
     }
   };
 
+  const selectedCategories = [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Mythology",
+    "Suspense",
+    "Historical Fiction",
+    "Horror",
+    "Literary Fiction",
+    "Romance",
+    "Romance Fiction",
+  ];
+
+  const sizeofbooks = data.length;
+
   return (
     <>
       <div>
-        <p className="flex justify-center font-bold text-3xl">All Books</p>
+        <p className="flex justify-center font-bold text-3xl">
+          All Books : {sizeofbooks}
+        </p>
       </div>
-      <div className="grid w-screen grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-5 mb-5">
+      <div className="grid w-screen grid-cols-1 pl-2 pr-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-5 mb-5">
         {data.map((val, index) => (
           <div
             key={index}
@@ -95,6 +114,9 @@ const Books = () => {
               </p>
               <p className="mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
                 Author: {val[1].author}
+              </p>
+              <p className="mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
+                Category: {val[1].category}
               </p>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 Description: {val[1].description}
@@ -119,6 +141,7 @@ const Books = () => {
                         price: val[1].price,
                         author: val[1].author,
                         description: val[1].description,
+                        category: val[1].category,
                       });
                     }}
                   >
@@ -178,6 +201,24 @@ const Books = () => {
                     placeholder="Enter author's name"
                   />
                 </div>
+                <div>
+                  <p className="text-center font-semibold">Category</p>
+                  <select
+                    className="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    name="category"
+                    onChange={handleUpdateInputChange}
+                    value={updatedBookDetails.category}
+                  >
+                    <option value="" disabled>
+                      Select a category
+                    </option>
+                    {selectedCategories.map((val, index) => (
+                      <option key={index} value={val}>
+                        {val}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 <div className="mb-4">
                   <label className="block text-gray-700 font-medium mb-2">
                     Description
@@ -196,12 +237,12 @@ const Books = () => {
                     onClick={() => Updatevalue(selectedBook._id)}
                     className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    Update Book
+                    Save
                   </button>
                   <button
                     type="button"
                     onClick={() => setSelectedBook(null)}
-                    className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+                    className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                   >
                     Cancel
                   </button>
