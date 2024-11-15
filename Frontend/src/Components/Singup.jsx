@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Signup = () => {
@@ -11,12 +11,19 @@ const Signup = () => {
     let userval = { Username: username, email: email, password: password };
     try {
       await axios
-        .post("http://localhost:3321/user/register", userval)
-        .then((res) => console.log(res.data.user));
+        .post("http://localhost:3321/usersignup/sigup", userval)
+        .then((res) => console.log(res.data.Users));
+      alert("Sigup Succesfully");
+      window.location.href = "/login";
     } catch (error) {
       console.error("the error in singup page: ", error);
     }
   };
+
+  useEffect(()=>{
+    axios.get("http://localhost:3321/user/showusers")
+    .then((res)=> console.log(res.data.Users));
+  },[])
 
   return (
     <>
