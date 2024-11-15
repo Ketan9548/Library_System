@@ -1,12 +1,8 @@
-import { StrictMode, useEffect, useState } from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Navigate,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import About from "./Components/About.jsx";
 import Addbooks from "./Components/Addbooks.jsx";
@@ -15,26 +11,10 @@ import Signup from "./Components/Singup.jsx";
 import Login from "./Components/Login.jsx";
 import TermandCondition from "./Pages/TermandCondition.jsx";
 
-function AuthWrapper() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    // Check if the token exists in localStorage
-    const token = localStorage.getItem("token");
-    setIsAuthenticated(!!token); // Set true if token exists
-  }, []);
-
-  return isAuthenticated ? <App /> : <Navigate to="/signup" />;
-}
-
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <AuthWrapper>
-        <App />
-      </AuthWrapper>
-    ),
+    element: <App />,
     children: [
       {
         path: "/",

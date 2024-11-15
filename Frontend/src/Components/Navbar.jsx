@@ -9,6 +9,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+
   return (
     <div>
       <nav className="bg-zinc-700 w-screen p-4 shadow-lg">
@@ -77,7 +78,7 @@ const Navbar = () => {
           <div className="flex">
             <div className="mr-5">
               <p className="text-white cursor-pointer hover:bg-slate-400 hover:text-black">
-                <NavLink to="/signup">SingUp</NavLink>
+                <NavLink to="/signup">SignUp</NavLink>
               </p>
             </div>
             <div className="ml-3">
