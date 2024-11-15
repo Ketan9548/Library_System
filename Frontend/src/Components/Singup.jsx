@@ -7,19 +7,19 @@ const Signup = () => {
   const [password, setPassword] = useState("");
 
   const handlesubmit = async (e) => {
-    e.preventDefault()
-    let userval = {Username: username,email: email,password: password };
+    e.preventDefault();
+    let userval = { Username: username, email: email, password: password };
     try {
       await axios
         .post("http://localhost:3321/user/register", userval)
-        .then((res)=>console.log(res.data.user))
+        .then((res) => console.log(res.data.user));
     } catch (error) {
       console.error("the error in singup page: ", error);
     }
   };
 
   return (
-    <>  
+    <>
       <div className="h-screen mt-16">
         <form onSubmit={handlesubmit} className="max-w-sm mx-auto">
           <div className="bg-slate-500 border-2 border-white rounded-xl p-4">
