@@ -14,7 +14,7 @@ Userapp.post("/register", (req, res) => {
     .catch((err) => res.status(500).json({ error: err.message }));
 });
 
-// get all the users
+// get all the users 
 Userapp.get("/showusers", async (req, res) => {
   let Users;
   try {

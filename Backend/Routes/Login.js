@@ -28,7 +28,7 @@ Loginrouter.post("/login", async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.status(200).json({ Token: token });
+    res.status(200).json({message: "Login succesfully", Token: token });
   } catch (error) {
     res.status(500).json({ message: "Server Error in Login" });
   }

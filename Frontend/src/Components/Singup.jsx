@@ -10,20 +10,32 @@ const Signup = () => {
     e.preventDefault();
     let userval = { Username: username, email: email, password: password };
     try {
-      await axios
-        .post("http://localhost:3321/usersignup/sigup", userval)
-        .then((res) => console.log(res.data.Users));
+      const response = await axios.post(
+        "http://localhost:3321/usersignup/sigup",
+        userval
+      );
       alert("Sigup Succesfully");
-      window.location.href = "/login";
+      localStorage.setItem(response.data.Genratedtoken);
+      console.log("gerated token is:", response.data.Genratedtoken);
+      // window.location.href = "/login";
     } catch (error) {
-      console.error("the error in singup page: ", error);
+      if (error.response.data.message === "Please fill all fields") {
+        alert("Please fill all fields");
+      }
+      if (error.response.data.message === "User already exists") {
+        alert("User already exists! Please log in or use a different email.");
+      } else {
+        console.error("The error in signup page: ", error);
+        alert("Signup failed. Please try again.");
+      }
     }
   };
 
-  useEffect(()=>{
-    axios.get("http://localhost:3321/user/showusers")
-    .then((res)=> console.log(res.data.Users));
-  },[])
+  useEffect(() => {
+    axios
+      .get("http://localhost:3321/user/showusers")
+      .then((res) => console.log(res.data.Users));
+  }, []);
 
   return (
     <>

@@ -12,8 +12,12 @@ Singuprouter.post("/sigup", async (req, res) => {
   const { Username, email, password } = req.body;
 
   try {
-    // check if user is already exits
+    if (!Username || !email || !password) {
+      return res.status(400).json({ message: "Please fill all fields" });
+    }
+
     const Userexits = await User.findOne({ email });
+
     if (Userexits) {
       return res.status(400).json({ message: "User already exists" });
     }
@@ -25,12 +29,10 @@ Singuprouter.post("/sigup", async (req, res) => {
     const newUser = new User({ Username, email, password: hashedPassword });
     await newUser.save();
 
-    // Generated JWT Token
     const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-
-    res.status(201).json({ Genratedtoken: token });
+    res.status(201).json({ message: "User is registration succesfuly", Genratedtoken: token });
   } catch (error) {
     res.status(500).json({ message: "Server Error in Singup" });
   }
