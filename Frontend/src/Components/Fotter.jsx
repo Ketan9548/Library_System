@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="w-screen">
+    <div className="w-auto">
       <footer className="bg-gray-800 text-white py-8 px-4">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           {/* Brand Section */}

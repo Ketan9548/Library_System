@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="h-screen w-full">
+    <div className="h-auto w-full">
       <div className="flex justify-center mt-4">
         <p className="text-black font-bold text-4xl md:text-6xl lg:text-8xl text-center">
           Welcome to your library

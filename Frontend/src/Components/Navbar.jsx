@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isSignedIn, setIsSignedIn] = useState(false); // Track authentication state
+  const [isOpen, setIsOpen] = useState(true);
+  const [isSignedIn, setIsSignedIn] = useState(true); // Track authentication state
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-auto w-full">
+    <div className="h-auto w-auto">
       <nav className="bg-zinc-700 w-full p-4 shadow-lg">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
@@ -88,7 +88,7 @@ const Navbar = () => {
               </p>
             </div>
           )}
-          <div className="hidden md:flex">
+          {/* <div className="hidden md:flex">
             {isSignedIn ? (
               <button
                 onClick={handleSignOut}
@@ -114,7 +114,7 @@ const Navbar = () => {
                 </div>
               </>
             )}
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>
